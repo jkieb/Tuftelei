@@ -1,8 +1,9 @@
-# Schwarmmobil
-
-- **Datum:** 2026-10-24
-- **Bereich:** Maschinenbau / Robotik
-- **Status:** Roh
+---
+title: "Schwarmmobil"
+date: 2026-10-24
+bereich: "Maschinenbau / Robotik"
+status: Roh
+---
 
 ## Kernidee
 Ein Vehikel, das nicht aus einer Einheit besteht, sondern wie Ameisen oder Bienen als Schwarm arbeitet: viele einfache Module, die sich zusammenschließen, trennen und Aufgaben gemeinsam lösen.
