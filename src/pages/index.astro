@@ -1,99 +1,48 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import portrait from '../assets/portrait-transparent-bw.png';
+import { getCollection } from 'astro:content';
+import IdeenLayout from '../layouts/IdeenLayout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const ideen = (await getCollection('ideen')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const stati = [...new Set(ideen.map((i) => i.data.status))];
 ---
 
-<Layout 
-  title="Jakob Iebed - Maschinenbau-Student & Entwickler"
-  description="Jakob Iebed - Maschinenbau-Student, Techniker und Entwickler aus Wien. Mein Portfolio zeigt Projekte in 3D-Druck, Elektronik und Programmierung, stets mit Fokus auf kreatives Denken und unkonventionelle Lösungen."
->
-  <header>
-    <nav class="nav gray navbar navbar-expand-lg">
-      <div class="container">
-        <a class="navbar-brand black" href={`${base}/`} aria-label="Home">Jakob Iebed</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link black" href={`${base}/`}>Start</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link black" href={`${base}/about-me`}>About Me</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link black" href={`${base}/projekte`}>Projekte</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link black" href={`${base}/ideen/`}>Ideen</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link black" href="#contact">Kontakt</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+<IdeenLayout title="Ideen">
+	<h1>Ideen</h1>
+	<label>
+		Status
+		<select id="status">
+			<option value="">alle</option>
+			{stati.map((s) => <option>{s}</option>)}
+		</select>
+	</label>
+	<ul>
+		{ideen.map((i) => (
+			<li data-status={i.data.status}>
+				<a href={`${base}/ideen/${i.id}/`}>{i.data.title}</a>
+				<span class="badge">{i.data.status}</span>
+				<div class="meta">{i.data.date.toISOString().slice(0, 10)} · {i.data.bereich}</div>
+			</li>
+		))}
+	</ul>
+</IdeenLayout>
 
-  <main>
-    <section id="start" class="py-5">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 d-flex justify-content-center">
-            <div class="image-container">
-              <Image 
-                src={portrait}
-                alt="Jakob Iebed Portrait"
-                class="profile-image"
-                width={600}
-                height={600}
-                quality={90}
-                format="webp"
-                loading="eager"
-                decoding="async"
-              />
-            </div>
-          </div>
-          <div id="SprichwortAr" class="col-md-6 text-center">
-            <p class="h1 mb-3">انما النصر صبر ساعة</p>
-            <p class="h4 mb-3">
-              "Wo doch der Sieg nur das Warten einer Stunde ist"
-            </p>
-            <p class="text-muted">
-              <i>Arabisches Sprichwort - die Gewinner tun nur ein klein wenig mehr als die anderen.</i>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+<style>
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	li {
+		padding: 0.75rem 0;
+		border-bottom: 1px solid var(--line);
+	}
+</style>
 
-  <footer id="contact" class="py-5 bg-light">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-4">
-          <h2 class="h3">Zögere nicht, mich zu kontaktieren</h2>
-          <p class="mb-0">E-Mail: <a href="mailto:jakobiebd@gmail.com">jakobiebd@gmail.com</a></p>
-        </div>
-        <div class="col-md-4 text-center">
-          <a href="https://www.linkedin.com/in/jakob-iebed-135690205/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profil">
-            <i class="fab fa-linkedin fa-4x"></i>
-          </a>
-        </div>
-        <div class="col-md-4 text-center">
-          <i class="far fa-smile fa-6x"></i>
-        </div>
-      </div>
-      <div class="text-center mt-4">
-        <p class="mb-0">© <span id="current-year"></span> Jakob Iebed</p>
-      </div>
-    </div>
-  </footer>
-</Layout>
+<script>
+	const select = document.querySelector<HTMLSelectElement>('#status')!;
+	select.addEventListener('change', () => {
+		document.querySelectorAll<HTMLElement>('li[data-status]').forEach((li) => {
+			li.hidden = select.value !== '' && li.dataset.status !== select.value;
+		});
+	});
+</script>
