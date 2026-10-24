@@ -13,7 +13,7 @@ const { Content } = await render(idee);
 ---
 
 <IdeenLayout title={idee.data.title}>
-	<p><a href={`${base}/ideen/`}>← Alle Ideen</a></p>
+	<p><a href={`${base}/`}>← Alle Ideen</a></p>
 	<h1>{idee.data.title}</h1>
 	<p class="meta">
 		{idee.data.date.toISOString().slice(0, 10)} · {idee.data.bereich} · <span class="badge">{idee.data.status}</span>
