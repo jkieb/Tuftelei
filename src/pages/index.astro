@@ -5,6 +5,7 @@ import portrait from '../assets/portrait-transparent-bw.png';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout 
@@ -14,20 +15,23 @@ import portrait from '../assets/portrait-transparent-bw.png';
   <header>
     <nav class="nav gray navbar navbar-expand-lg">
       <div class="container">
-        <a class="navbar-brand black" href="/" aria-label="Home">Jakob Iebed</a>
+        <a class="navbar-brand black" href={`${base}/`} aria-label="Home">Jakob Iebed</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link black" href="/jkieb-astro/">Start</a>
+              <a class="nav-link black" href={`${base}/`}>Start</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link black" href="/jkieb-astro/about-me">About Me</a>
+              <a class="nav-link black" href={`${base}/about-me`}>About Me</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link black" href="/jkieb-astro/projekte">Projekte</a>
+              <a class="nav-link black" href={`${base}/projekte`}>Projekte</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link black" href={`${base}/ideen/`}>Ideen</a>
             </li>
             <li class="nav-item">
               <a class="nav-link black" href="#contact">Kontakt</a>
