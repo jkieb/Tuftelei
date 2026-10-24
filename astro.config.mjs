@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://jkieb.github.io',
-  base: '/jkieb-astro',
+  base: '/Tuftelei',
   output: 'static',
   integrations: [sitemap({ filter: (page) => !page.includes('/ideen') })],
   build: {
