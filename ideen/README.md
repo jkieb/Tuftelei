@@ -2,6 +2,8 @@
 
 Internes Ideenarchiv. Liegt bewusst außerhalb von `src/` und `public/`, wird also nicht auf die Website gebaut.
 
+**Website:** `npm run dev` → /jkieb-astro/ideen/ (Markdown mit Frontmatter, siehe `_Vorlage.md`)
+
 **Dateiname:** `JJJJ-MM-TT_Thema_Detail.md` (Vorlage: `_Vorlage.md`)
 
 **Status:** `Roh` → `Skizze` → `Prüfen` → `Aktiv` / `Verworfen`

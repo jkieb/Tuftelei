@@ -1,8 +1,9 @@
-# Strom herstellen, speichern, Arbitrage (Solar + Batterie)
-
-- **Datum:** 2026-10-24
-- **Bereich:** Energie
-- **Status:** Roh
+---
+title: "Strom herstellen, speichern, Arbitrage (Solar + Batterie)"
+date: 2026-10-24
+bereich: "Energie"
+status: Roh
+---
 
 ## Kernidee
 Strom mit Solar erzeugen, in Batterien speichern und mit Preisunterschieden Geld verdienen: laden bei niedrigem oder negativem Preis, einspeisen oder verbrauchen bei hohem Preis.

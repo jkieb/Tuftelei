@@ -1,8 +1,9 @@
-# Der Realitätssammler
-
-- **Datum:** 2026-10-24
-- **Bereich:** Literatur (Romanidee)
-- **Status:** Roh
+---
+title: "Der Realitätssammler"
+date: 2026-10-24
+bereich: "Literatur (Romanidee)"
+status: Roh
+---
 
 ## Kernidee
 In einer Welt, in der praktisch nur noch künstlich generierte Inhalte entstehen, werden Menschen hochqualifiziert ausgebildet, um echte, authentische Erlebnisse aufzuspüren, zu verifizieren und zu bewahren.
