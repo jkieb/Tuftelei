@@ -13,3 +13,4 @@ Internes Ideenarchiv. Liegt bewusst außerhalb von `src/` und `public/`, wird al
 | 2026-10-24 | [Schwarmmobil](2026-10-24_Schwarmmobil_Konzept.md) | Maschinenbau / Robotik | Roh |
 | 2026-10-24 | [Der Realitätssammler](2026-10-24_Literatur_Realitaetssammler.md) | Literatur | Roh |
 | 2026-10-24 | [Strom-Arbitrage mit Solar + Batterie](2026-10-24_Energie_Strom-Arbitrage.md) | Energie | Roh |
+| 2026-10-25 | [Studo-Bot mit Quelle und Sicherheit](2026-10-25_Studium_Studo-Bot.md) | Studium / KI | Roh |
